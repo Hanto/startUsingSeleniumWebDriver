@@ -1,5 +1,6 @@
 package com.eviltester.webdriver.Base;
 
+import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -10,7 +11,7 @@ public abstract class AbstractChromeTest
 {
     protected WebDriver driver;
 
-    public AbstractChromeTest(String homePage)
+    public AbstractChromeTest()
     {
         String currentDir = System.getProperty("user.dir");
         String chromeDriverLocation = currentDir + "/tools/chromedriver.exe";
@@ -20,10 +21,10 @@ public abstract class AbstractChromeTest
         // and you don't need to set the property as listed in the 3 lines above
         // e.g. D:\Users\Alan\Documents\github\startUsingSeleniumWebDriver\tools\chromedriver
         driver = new ChromeDriver();
-        driver.navigate().to(homePage);
     }
 
-    public void dispose()
+    @After
+    public void after()
     {
         driver.close();
         driver.quit();

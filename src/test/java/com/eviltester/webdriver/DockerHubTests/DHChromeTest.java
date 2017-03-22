@@ -2,6 +2,7 @@ package com.eviltester.webdriver.DockerHubTests;
 
 import com.eviltester.webdriver.Base.AbstractChromeTest;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
@@ -17,25 +18,15 @@ public class DHChromeTest extends AbstractChromeTest
     private final String LOGIN_USERNAME = "hanto";
     private final String LOGIN_PASSWORD = "i1272del";
     private final String EMAIL_ADRESS = "Jhanto@gmail.com";
+    private final String HOMEPAGE = "https://hub.docker.com/";
 
 
-    public DHChromeTest()
+    @Before
+    public void before()
     {
-        super("https://hub.docker.com/");
         pageObject = PageFactory.initElements(driver, DHPageObject.class);
+        driver.navigate().to(HOMEPAGE);
     }
-/*
-    @Test public void whenSignUpDataIsEntered_signUpSuccessMessageIsDisplayed()
-    {
-        pageObject.dockerID.sendKeys(LOGIN_USERNAME);
-        pageObject.emailAdress.sendKeys(EMAIL_ADRESS);
-        pageObject.password.sendKeys(LOGIN_PASSWORD);
-
-        pageObject.signUpButton.click();
-
-        Assert.assertTrue("whenSignUpDataIsEntered_signUpSuccessMessageIsDisplayed",
-                pageObject.signUpSuccess.isDisplayed());
-    }*/
 
     @Test public void whenSignInDataIsEntered_SignInNameIsCorrect() throws Exception
     {
