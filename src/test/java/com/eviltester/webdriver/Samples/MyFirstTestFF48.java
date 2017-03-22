@@ -10,7 +10,7 @@ Marionette/GeckoDriver
 Otherwise ignore this code.
 
  */
-package com.eviltester.webdriver;
+package com.eviltester.webdriver.Samples;
 
 import org.junit.Test;
 

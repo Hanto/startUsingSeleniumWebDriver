@@ -1,20 +1,17 @@
-package com.eviltester.webdriver;
+package com.eviltester.webdriver.Base;
 
-import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class MyFirstChromeTest {
+/**
+ * Created by gft08 on 3/22/2017.
+ */
+public abstract class AbstractChromeTest
+{
+    protected WebDriver driver;
 
-    @Test
-    public void startWebDriver(){
-
-
-        /* The following code is for the Chrome Driver
-           You also need to download the ChromeDriver executable
-           https://sites.google.com/a/chromium.org/chromedriver/
-         */
+    public AbstractChromeTest(String homePage)
+    {
         String currentDir = System.getProperty("user.dir");
         String chromeDriverLocation = currentDir + "/tools/chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromeDriverLocation);
@@ -22,13 +19,12 @@ public class MyFirstChromeTest {
         //If you add the folder with chromedriver.exe to the path then you only need the following line
         // and you don't need to set the property as listed in the 3 lines above
         // e.g. D:\Users\Alan\Documents\github\startUsingSeleniumWebDriver\tools\chromedriver
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
+        driver.navigate().to(homePage);
+    }
 
-        driver.navigate().to("http://seleniumsimplified.com");
-
-        Assert.assertTrue("title should start differently",
-                            driver.getTitle().startsWith("Selenium Simplified"));
-
+    public void dispose()
+    {
         driver.close();
         driver.quit();
     }

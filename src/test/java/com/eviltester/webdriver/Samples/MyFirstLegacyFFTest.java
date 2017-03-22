@@ -1,4 +1,4 @@
-package com.eviltester.webdriver;
+package com.eviltester.webdriver.Samples;
 
 import org.junit.Assert;
 import org.junit.Test;
