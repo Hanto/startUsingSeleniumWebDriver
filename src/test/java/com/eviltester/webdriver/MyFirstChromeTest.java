@@ -15,9 +15,9 @@ public class MyFirstChromeTest {
            You also need to download the ChromeDriver executable
            https://sites.google.com/a/chromium.org/chromedriver/
          */
-        // String currentDir = System.getProperty("user.dir");
-        // String chromeDriverLocation = currentDir + "/tools/chromedriver/chromedriver.exe";
-        // System.setProperty("webdriver.chrome.driver", chromeDriverLocation);
+        String currentDir = System.getProperty("user.dir");
+        String chromeDriverLocation = currentDir + "/tools/chromedriver.exe";
+        System.setProperty("webdriver.chrome.driver", chromeDriverLocation);
 
         //If you add the folder with chromedriver.exe to the path then you only need the following line
         // and you don't need to set the property as listed in the 3 lines above
